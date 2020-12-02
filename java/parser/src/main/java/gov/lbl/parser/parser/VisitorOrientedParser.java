@@ -31,7 +31,7 @@ public class VisitorOrientedParser implements Parser {
         return traverseResult;
     }
 
-    private static class Stored_definitionVisitor extends modelicaBaseVisitor<Stored_definition> {
+    public static class Stored_definitionVisitor extends modelicaBaseVisitor<Stored_definition> {
       @Override
       public Stored_definition visitStored_definition(modelicaParser.Stored_definitionContext ctx) {
         List<String> within_dec = ctx.WITHIN() == null ? null : ctx.WITHIN()           		
@@ -56,7 +56,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Class_definitionVisitor extends modelicaBaseVisitor<Class_definition> {
+    public static class Class_definitionVisitor extends modelicaBaseVisitor<Class_definition> {
       @Override
       public Class_definition visitClass_definition(modelicaParser.Class_definitionContext ctx) {
         String enca_dec = ctx.ENCAPSULATED() == null ? null : ctx.ENCAPSULATED().getText();       
@@ -68,7 +68,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Class_specifierVisitor extends modelicaBaseVisitor<Class_specifier> {
+    public static class Class_specifierVisitor extends modelicaBaseVisitor<Class_specifier> {
       @Override
       public Class_specifier visitClass_specifier(modelicaParser.Class_specifierContext ctx) {
         Long_class_specifierVisitor long_class_specifierVisitor = new Long_class_specifierVisitor();
@@ -84,7 +84,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Class_prefixesVisitor extends modelicaBaseVisitor<String> {
+    public static class Class_prefixesVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitClass_prefixes(modelicaParser.Class_prefixesContext ctx) { 	  
         String partial_dec = 
@@ -155,7 +155,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Long_class_specifierVisitor extends modelicaBaseVisitor<Long_class_specifier> {
+    public static class Long_class_specifierVisitor extends modelicaBaseVisitor<Long_class_specifier> {
       @Override
       public Long_class_specifier visitLong_class_specifier(modelicaParser.Long_class_specifierContext ctx) {
         List<String> ident = ctx.IDENT()
@@ -175,7 +175,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Short_class_specifierVisitor extends modelicaBaseVisitor<Short_class_specifier> {
+    public static class Short_class_specifierVisitor extends modelicaBaseVisitor<Short_class_specifier> {
       @Override
       public Short_class_specifier visitShort_class_specifier(modelicaParser.Short_class_specifierContext ctx) {
         String enum_dec = 
@@ -207,7 +207,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Der_class_specifierVisitor extends modelicaBaseVisitor<Der_class_specifier> {
+    public static class Der_class_specifierVisitor extends modelicaBaseVisitor<Der_class_specifier> {
       @Override
       public Der_class_specifier visitDer_class_specifier(modelicaParser.Der_class_specifierContext ctx) {
     	List<String> idents = ctx.IDENT()
@@ -228,7 +228,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Base_prefixVisitor extends modelicaBaseVisitor<String> {
+    public static class Base_prefixVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitBase_prefix(modelicaParser.Base_prefixContext ctx) {
         Type_prefixVisitor type_prefixVisitor = new Type_prefixVisitor();
@@ -238,7 +238,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Enum_listVisitor extends modelicaBaseVisitor<Enum_list> {
+    public static class Enum_listVisitor extends modelicaBaseVisitor<Enum_list> {
       @Override
       public Enum_list visitEnum_list(modelicaParser.Enum_listContext ctx) {
         Enumeration_literalVisitor enumeration_literalVisitor = new Enumeration_literalVisitor();
@@ -250,7 +250,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Enumeration_literalVisitor extends modelicaBaseVisitor<Enumeration_literal> {
+    public static class Enumeration_literalVisitor extends modelicaBaseVisitor<Enumeration_literal> {
       @Override
       public Enumeration_literal visitEnumeration_literal(modelicaParser.Enumeration_literalContext ctx) {
         String ident = ctx.IDENT().getText();
@@ -260,7 +260,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class CompositionVisitor extends modelicaBaseVisitor<Composition> {
+    public static class CompositionVisitor extends modelicaBaseVisitor<Composition> {
       @Override
       public Composition visitComposition(modelicaParser.CompositionContext ctx) {
         List<String> public_dec = ctx.PUBLIC() == null ? null : ctx.PUBLIC()
@@ -321,7 +321,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Language_specificationVisitor extends modelicaBaseVisitor<String> {
+    public static class Language_specificationVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitLanguage_specification(modelicaParser.Language_specificationContext ctx) {
         String string = ctx.STRING().getText();
@@ -330,7 +330,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class External_function_callVisitor extends modelicaBaseVisitor<String> {
+    public static class External_function_callVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitExternal_function_call(modelicaParser.External_function_callContext ctx) {
     	  String ident = ctx.IDENT().getText();
@@ -350,7 +350,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Element_listVisitor extends modelicaBaseVisitor<Element_list> {
+    public static class Element_listVisitor extends modelicaBaseVisitor<Element_list> {
       @Override
       public Element_list visitElement_list(modelicaParser.Element_listContext ctx) {
         ElementVisitor elementVisitor = new ElementVisitor();
@@ -362,7 +362,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class ElementVisitor extends modelicaBaseVisitor<Element> {
+    public static class ElementVisitor extends modelicaBaseVisitor<Element> {
       @Override
       public Element visitElement(modelicaParser.ElementContext ctx) {
         String red_dec = 
@@ -416,7 +416,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Import_clauseVisitor extends modelicaBaseVisitor<Import_clause> {
+    public static class Import_clauseVisitor extends modelicaBaseVisitor<Import_clause> {
       @Override
       public Import_clause visitImport_clause(modelicaParser.Import_clauseContext ctx) {
         String import_dec = ctx.IMPORT().getText();
@@ -436,7 +436,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Import_listVisitor extends modelicaBaseVisitor<String> {
+    public static class Import_listVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitImport_list(modelicaParser.Import_listContext ctx) {
     	  List<String> ident = ctx.IDENT()
@@ -457,7 +457,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Extends_clauseVisitor extends modelicaBaseVisitor<Extends_clause> {
+    public static class Extends_clauseVisitor extends modelicaBaseVisitor<Extends_clause> {
       @Override
       public Extends_clause visitExtends_clause(modelicaParser.Extends_clauseContext ctx) {
         String ext_dec = ctx.EXTENDS().getText();
@@ -473,7 +473,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Constraining_clauseVisitor extends modelicaBaseVisitor<String> {
+    public static class Constraining_clauseVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitConstraining_clause(modelicaParser.Constraining_clauseContext ctx) {
         String constrain_dec = ctx.CONSTRAINEDBY().getText();
@@ -491,7 +491,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Component_clauseVisitor extends modelicaBaseVisitor<Component_clause> {
+    public static class Component_clauseVisitor extends modelicaBaseVisitor<Component_clause> {
       @Override
       public Component_clause visitComponent_clause(modelicaParser.Component_clauseContext ctx) {
         Type_prefixVisitor type_prefixVisitor = new Type_prefixVisitor();
@@ -508,7 +508,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Type_prefixVisitor extends modelicaBaseVisitor<String> {
+    public static class Type_prefixVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitType_prefix(modelicaParser.Type_prefixContext ctx) {
     	  String flow_dec = 
@@ -538,7 +538,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Type_specifierVisitor extends modelicaBaseVisitor<String> {
+    public static class Type_specifierVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitType_specifier(modelicaParser.Type_specifierContext ctx) {
         NameVisitor nameVisitor = new NameVisitor();
@@ -548,7 +548,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Component_listVisitor extends modelicaBaseVisitor<Component_list> {
+    public static class Component_listVisitor extends modelicaBaseVisitor<Component_list> {
       @Override
       public Component_list visitComponent_list(modelicaParser.Component_listContext ctx) {
         Component_declarationVisitor component_declarationVisitor = new Component_declarationVisitor();
@@ -560,7 +560,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Component_declarationVisitor extends modelicaBaseVisitor<Component_declaration> {
+    public static class Component_declarationVisitor extends modelicaBaseVisitor<Component_declaration> {
       @Override
       public Component_declaration visitComponent_declaration(modelicaParser.Component_declarationContext ctx) {
         DeclarationVisitor declarationVisitor = new DeclarationVisitor();
@@ -575,7 +575,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Condition_attributeVisitor extends modelicaBaseVisitor<String> {
+    public static class Condition_attributeVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitCondition_attribute(modelicaParser.Condition_attributeContext ctx) {
         String if_dec = ctx.IF().getText();
@@ -588,7 +588,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class DeclarationVisitor extends modelicaBaseVisitor<Declaration> {
+    public static class DeclarationVisitor extends modelicaBaseVisitor<Declaration> {
       @Override
       public Declaration visitDeclaration(modelicaParser.DeclarationContext ctx) {
         String ident = ctx.IDENT().getText();
@@ -602,7 +602,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class ModificationVisitor extends modelicaBaseVisitor<String> {
+    public static class ModificationVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitModification(modelicaParser.ModificationContext ctx) {    	  
         Class_modificationVisitor class_modificationVisitor = new Class_modificationVisitor();
@@ -631,7 +631,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Class_modificationVisitor extends modelicaBaseVisitor<String> {
+    public static class Class_modificationVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitClass_modification(modelicaParser.Class_modificationContext ctx) {
         Argument_listVisitor argument_listVisitor = new Argument_listVisitor();
@@ -644,7 +644,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Argument_listVisitor extends modelicaBaseVisitor<String> {
+    public static class Argument_listVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitArgument_list(modelicaParser.Argument_listContext ctx) {
         ArgumentVisitor argumentVisitor = new ArgumentVisitor();
@@ -666,7 +666,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class ArgumentVisitor extends modelicaBaseVisitor<String> {
+    public static class ArgumentVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitArgument(modelicaParser.ArgumentContext ctx) {
         Element_modification_or_replaceableVisitor element_modification_or_replaceableVisitor = new Element_modification_or_replaceableVisitor();
@@ -681,7 +681,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Element_modification_or_replaceableVisitor extends modelicaBaseVisitor<String> {
+    public static class Element_modification_or_replaceableVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitElement_modification_or_replaceable(modelicaParser.Element_modification_or_replaceableContext ctx) {
         String each_dec = 
@@ -710,7 +710,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Element_modificationVisitor extends modelicaBaseVisitor<String> {
+    public static class Element_modificationVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitElement_modification(modelicaParser.Element_modificationContext ctx) {
         NameVisitor nameVisitor = new NameVisitor();
@@ -731,7 +731,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Element_redeclarationVisitor extends modelicaBaseVisitor<String> {
+    public static class Element_redeclarationVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitElement_redeclaration(modelicaParser.Element_redeclarationContext ctx) {
         String red_dec = ctx.REDECLARE().getText();
@@ -767,7 +767,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Element_replaceableVisitor extends modelicaBaseVisitor<String> {
+    public static class Element_replaceableVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitElement_replaceable(modelicaParser.Element_replaceableContext ctx) {
         String rep_dec = ctx.REPLACEABLE().getText();
@@ -796,7 +796,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Component_clause1Visitor extends modelicaBaseVisitor<String> {
+    public static class Component_clause1Visitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitComponent_clause1(modelicaParser.Component_clause1Context ctx) {
         Type_prefixVisitor type_prefixVisitor = new Type_prefixVisitor();
@@ -817,7 +817,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Component_declaration1Visitor extends modelicaBaseVisitor<String> {
+    public static class Component_declaration1Visitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitComponent_declaration1(modelicaParser.Component_declaration1Context ctx) {
     	  String declaration_1 = "";
@@ -840,7 +840,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Short_class_definitionVisitor extends modelicaBaseVisitor<String> {
+    public static class Short_class_definitionVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitShort_class_definition(modelicaParser.Short_class_definitionContext ctx) {
         Class_prefixesVisitor class_prefixesVisitor = new Class_prefixesVisitor();
@@ -898,7 +898,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Equation_sectionVisitor extends modelicaBaseVisitor<Equation_section> {
+    public static class Equation_sectionVisitor extends modelicaBaseVisitor<Equation_section> {
       @Override
       public Equation_section visitEquation_section(modelicaParser.Equation_sectionContext ctx) {
         String init_dec = 
@@ -913,7 +913,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Algorithm_sectionVisitor extends modelicaBaseVisitor<String> {
+    public static class Algorithm_sectionVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitAlgorithm_section(modelicaParser.Algorithm_sectionContext ctx) {
         String init_dec = 
@@ -940,7 +940,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class EquationVisitor extends modelicaBaseVisitor<Equation> {
+    public static class EquationVisitor extends modelicaBaseVisitor<Equation> {
       @Override
       public Equation visitEquation(modelicaParser.EquationContext ctx) {
         Simple_expressionVisitor simple_expressionVisitor = new Simple_expressionVisitor();
@@ -975,7 +975,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class StatementVisitor extends modelicaBaseVisitor<String> {
+    public static class StatementVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitStatement(modelicaParser.StatementContext ctx) {
         String bre_dec = 
@@ -1028,7 +1028,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class If_equationVisitor extends modelicaBaseVisitor<String> {   	
+    public static class If_equationVisitor extends modelicaBaseVisitor<String> {   	
 	@Override
       public String visitIf_equation(modelicaParser.If_equationContext ctx) {
     	  String temStr = "";
@@ -1046,7 +1046,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class If_statementVisitor extends modelicaBaseVisitor<String> {
+    public static class If_statementVisitor extends modelicaBaseVisitor<String> {
 	@Override
       public String visitIf_statement(modelicaParser.If_statementContext ctx) {
     	   String temStr = "";
@@ -1064,7 +1064,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class For_equationVisitor extends modelicaBaseVisitor<String> {
+    public static class For_equationVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitFor_equation(modelicaParser.For_equationContext ctx) {
     	  String temStr = "";
@@ -1082,7 +1082,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class For_statementVisitor extends modelicaBaseVisitor<String> {
+    public static class For_statementVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitFor_statement(modelicaParser.For_statementContext ctx) {
     	  String temStr = "";
@@ -1100,7 +1100,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class For_indicesVisitor extends modelicaBaseVisitor<String> {
+    public static class For_indicesVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitFor_indices(modelicaParser.For_indicesContext ctx) {
     	  For_indexVisitor for_indexVisitor = new For_indexVisitor();
@@ -1120,7 +1120,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class For_indexVisitor extends modelicaBaseVisitor<String> {
+    public static class For_indexVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitFor_index(modelicaParser.For_indexContext ctx) {
         String ident = ctx.IDENT().getText();
@@ -1137,7 +1137,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class While_statementVisitor extends modelicaBaseVisitor<String> {
+    public static class While_statementVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitWhile_statement(modelicaParser.While_statementContext ctx) {
     	  String temStr = "";
@@ -1155,7 +1155,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class When_equationVisitor extends modelicaBaseVisitor<String> {
+    public static class When_equationVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitWhen_equation(modelicaParser.When_equationContext ctx) {  
     	  String temStr = "";
@@ -1173,7 +1173,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class When_statementVisitor extends modelicaBaseVisitor<String> {
+    public static class When_statementVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitWhen_statement(modelicaParser.When_statementContext ctx) {
     	  String temStr = "";
@@ -1191,7 +1191,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Connect_clauseVisitor extends modelicaBaseVisitor<Connect_clause> {
+    public static class Connect_clauseVisitor extends modelicaBaseVisitor<Connect_clause> {
       @Override
       public Connect_clause visitConnect_clause(modelicaParser.Connect_clauseContext ctx) {
         Component_referenceVisitor component_referenceVisitor = new Component_referenceVisitor();
@@ -1203,7 +1203,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class ExpressionVisitor extends modelicaBaseVisitor<String> {
+    public static class ExpressionVisitor extends modelicaBaseVisitor<String> {
 	@Override
       public String visitExpression(modelicaParser.ExpressionContext ctx) {
 		String temStr = "";
@@ -1222,7 +1222,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Simple_expressionVisitor extends modelicaBaseVisitor<String> {
+    public static class Simple_expressionVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitSimple_expression(modelicaParser.Simple_expressionContext ctx) {
     	  String temStr = "";
@@ -1240,7 +1240,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Logical_expressionVisitor extends modelicaBaseVisitor<String> {
+    public static class Logical_expressionVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitLogical_expression(modelicaParser.Logical_expressionContext ctx) {
     	  List<String> or_decs = ctx.OR() == null ? null : ctx.OR()
@@ -1264,7 +1264,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Logical_termVisitor extends modelicaBaseVisitor<String> {
+    public static class Logical_termVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitLogical_term(modelicaParser.Logical_termContext ctx) {
     	  List<String> and_decs = ctx.AND() == null ? null : ctx.AND()
@@ -1288,7 +1288,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Logical_factorVisitor extends modelicaBaseVisitor<String> {
+    public static class Logical_factorVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitLogical_factor(modelicaParser.Logical_factorContext ctx) {
         String not_dec = 
@@ -1303,7 +1303,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class RelationVisitor extends modelicaBaseVisitor<String> {
+    public static class RelationVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitRelation(modelicaParser.RelationContext ctx) {
     	  Arithmetic_expressionVisitor arithmetic_expressionVisitor = new Arithmetic_expressionVisitor();
@@ -1324,7 +1324,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Rel_opVisitor extends modelicaBaseVisitor<String> {
+    public static class Rel_opVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitRel_op(modelicaParser.Rel_opContext ctx) {
     	String relOpe = ctx.getText();  
@@ -1333,7 +1333,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Arithmetic_expressionVisitor extends modelicaBaseVisitor<String> {
+    public static class Arithmetic_expressionVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitArithmetic_expression(modelicaParser.Arithmetic_expressionContext ctx) {
     	  Add_opVisitor add_opVisitor = new Add_opVisitor();
@@ -1362,7 +1362,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Add_opVisitor extends modelicaBaseVisitor<String> {
+    public static class Add_opVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitAdd_op(modelicaParser.Add_opContext ctx) {
     	String addOpe = ctx.getText(); 
@@ -1371,7 +1371,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class TermVisitor extends modelicaBaseVisitor<String> {
+    public static class TermVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitTerm(modelicaParser.TermContext ctx) {
         Mul_opVisitor mul_opVisitor = new Mul_opVisitor();
@@ -1396,7 +1396,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Mul_opVisitor extends modelicaBaseVisitor<String> {
+    public static class Mul_opVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitMul_op(modelicaParser.Mul_opContext ctx) {  			  	
         String mulOpe = ctx.getText(); 
@@ -1405,7 +1405,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class FactorVisitor extends modelicaBaseVisitor<String> {
+    public static class FactorVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitFactor(modelicaParser.FactorContext ctx) {
     	  PrimaryVisitor primaryVisitor = new PrimaryVisitor();
@@ -1435,7 +1435,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class PrimaryVisitor extends modelicaBaseVisitor<String> {
+    public static class PrimaryVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitPrimary(modelicaParser.PrimaryContext ctx) {
         String num_dec = 
@@ -1512,7 +1512,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class NameVisitor extends modelicaBaseVisitor<String> {
+    public static class NameVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitName(modelicaParser.NameContext ctx) {
     	List<String> dots = ctx.SYMBOL_DOT()==null ? null : ctx.SYMBOL_DOT()
@@ -1543,7 +1543,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Component_referenceVisitor extends modelicaBaseVisitor<String> {
+    public static class Component_referenceVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitComponent_reference(modelicaParser.Component_referenceContext ctx) {
     	  String temStr = "";
@@ -1561,7 +1561,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Function_call_argsVisitor extends modelicaBaseVisitor<String> {
+    public static class Function_call_argsVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitFunction_call_args(modelicaParser.Function_call_argsContext ctx) {
         Function_argumentsVisitor function_argumentsVisitor = new Function_argumentsVisitor();
@@ -1575,7 +1575,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Function_argumentsVisitor extends modelicaBaseVisitor<String> {
+    public static class Function_argumentsVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitFunction_arguments(modelicaParser.Function_argumentsContext ctx) {
         Function_argumentVisitor function_argumentVisitor = new Function_argumentVisitor();
@@ -1610,7 +1610,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Named_argumentsVisitor extends modelicaBaseVisitor<String> {
+    public static class Named_argumentsVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitNamed_arguments(modelicaParser.Named_argumentsContext ctx) {
         Named_argumentVisitor named_argumentVisitor = new Named_argumentVisitor();
@@ -1633,7 +1633,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Named_argumentVisitor extends modelicaBaseVisitor<String> {
+    public static class Named_argumentVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitNamed_argument(modelicaParser.Named_argumentContext ctx) {
     	  String ident = ctx.IDENT().getText();
@@ -1649,7 +1649,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Function_argumentVisitor extends modelicaBaseVisitor<String> {
+    public static class Function_argumentVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitFunction_argument(modelicaParser.Function_argumentContext ctx) {
     	  String fun_dec = 
@@ -1675,7 +1675,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Output_expression_listVisitor extends modelicaBaseVisitor<String> {
+    public static class Output_expression_listVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitOutput_expression_list(modelicaParser.Output_expression_listContext ctx) {
     	  String temStr = "";
@@ -1693,7 +1693,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Expression_listVisitor extends modelicaBaseVisitor<String> {
+    public static class Expression_listVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitExpression_list(modelicaParser.Expression_listContext ctx) {
         ExpressionVisitor expressionVisitor = new ExpressionVisitor();
@@ -1713,7 +1713,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class Array_subscriptsVisitor extends modelicaBaseVisitor<String> {
+    public static class Array_subscriptsVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitArray_subscripts(modelicaParser.Array_subscriptsContext ctx) {
     	  SubscriptVisitor subscriptVisitor = new SubscriptVisitor();
@@ -1743,7 +1743,7 @@ public class VisitorOrientedParser implements Parser {
       }
     }
 
-    private static class SubscriptVisitor extends modelicaBaseVisitor<String> {
+    public static class SubscriptVisitor extends modelicaBaseVisitor<String> {
       @Override
       public String visitSubscript(modelicaParser.SubscriptContext ctx) {
     	  String colon = 
